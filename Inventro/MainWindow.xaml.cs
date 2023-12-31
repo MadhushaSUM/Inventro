@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Inventro.View;
+using Inventro.View.UserControls;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Inventro
@@ -8,6 +10,19 @@ namespace Inventro
         public MainWindow()
         {
             InitializeComponent();
+
+            dailyPricesStack.Children.Clear();
+
+            string[] arr = { "කුරුදු", "ගම්මිරිස්", "අගුරු", "කරුන්කා", "ගොරකා" };
+            foreach (string item in arr)
+            {
+                dailyPricesStack.Children.Add(new DawaseMilaView(item, btnSaveClick));
+            }
+        }
+
+        public void btnSaveClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Clicked!");
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -15,7 +30,12 @@ namespace Inventro
             DragMove();
         }
 
-
+        // Side pannel button actions
+        private void btnNewTransaction_Click(object sender, RoutedEventArgs e)
+        {
+            NewTransaction newTransaction = new NewTransaction();
+            newTransaction.ShowDialog();
+        }
 
 
 

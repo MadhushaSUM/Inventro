@@ -121,4 +121,60 @@
         </Setter>
     </Style>
 
+    <SolidColorBrush x:Key="SidePannelButton.Static.Background" Color="Transparent"/>
+    <SolidColorBrush x:Key="SidePannelButton.Static.Foreground" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="SidePannelButton.Static.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="SidePannelButton.MouseOver.Background" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="SidePannelButton.MouseOver.Foreground" Color="#03001C"/>
+    <SolidColorBrush x:Key="SidePannelButton.MouseOver.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="SidePannelButton.Pressed.Background" Color="Transparent"/>
+    <SolidColorBrush x:Key="SidePannelButton.Pressed.Foreground" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="SidePannelButton.Pressed.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="SidePannelButton.Disabled.Background" Color="#FFF4F4F4"/>
+    <SolidColorBrush x:Key="SidePannelButton.Disabled.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="SidePannelButton.Disabled.Foreground" Color="#FF838383"/>
+
+    <Style x:Key="SidePannelButtons" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="0,5,0,5" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Background" Value="{StaticResource SidePannelButton.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SidePannelButton.Static.Border}"/>
+        <Setter Property="Foreground" Value="{StaticResource SidePannelButton.Static.Foreground}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="5">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource SidePannelButton.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource SidePannelButton.MouseOver.Border}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SidePannelButton.MouseOver.Foreground}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource SidePannelButton.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource SidePannelButton.Pressed.Border}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SidePannelButton.Pressed.Foreground}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource SidePannelButton.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource SidePannelButton.Disabled.Border}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource SidePannelButton.Disabled.Foreground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
