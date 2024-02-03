@@ -5,22 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Inventro.View.UserControls"
              mc:Ignorable="d" 
-             Height="40" d:DesignWidth="370">
-    
+             Height="40" d:DesignWidth="310">
+
     <StackPanel Orientation="Horizontal">
-        <Label Foreground="White"
-               VerticalAlignment="Center"
-               Width="100"
-               Name="lblItemName"
-               >
-            Item Name</Label>
-        <TextBox Width="200"
-                   Margin="5"
-                   Name="txtItemPrice"/>
-        <Button Height="25"
-                Width="50"
-                Margin="5"
-                Name="btnItemPriceSave">Save</Button>
-    </StackPanel>            
-    
+        <Label 
+            Foreground="White"
+            VerticalAlignment="Center"
+            Width="100"
+            Name="lblItemName">Item Name
+        </Label>
+        
+        <TextBox 
+            Width="200"
+            Margin="5"
+            Name="txtItemPrice"
+            TextChanged="txtItemPrice_TextChanged"/>
+    </StackPanel>
+
 </UserControl>

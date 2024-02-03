@@ -52,39 +52,33 @@
 
             <StackPanel Margin="10" >
                 <Button Style="{StaticResource SidePannelButtons}"
-                        Name="btnNewTransaction"
-                        Click="btnNewTransaction_Click">
+                    Name="btnDailyRates"
+                    Click="btnDailyRates_Click">
+                    දවසේ මිල ගණන්
+                </Button>
+                <Button 
+                    Style="{StaticResource SidePannelButtons}"
+                    Name="btnNewTransaction"
+                    Click="btnNewTransaction_Click">
                     නව ගනුදෙනු
                 </Button>
-                <Button Style="{StaticResource SidePannelButtons}">
+                <Button 
+                    Style="{StaticResource SidePannelButtons}"
+                    Name="btnAnalyzeTransactions"
+                    Click="btnAnalyzeTransactions_Click">
                     විග්‍රහ
                 </Button>
-                <Button Style="{StaticResource SidePannelButtons}">
+                <Button 
+                    Style="{StaticResource SidePannelButtons}"
+                    Name="btnSettings"
+                    Click="btnSettings_Click">
                     සැකසුම්
                 </Button>
             </StackPanel>
 
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0"
-                       Style="{StaticResource DawaseMilaText}">
-                    දවසේ මිල ගණන්
-                </Label>
-
-                <ScrollViewer Grid.Row="1"
-                              Margin="5"
-                              VerticalScrollBarVisibility="Hidden">
-                    <StackPanel HorizontalAlignment="Center"
-                                Name="dailyPricesStack">
-                      
-                    </StackPanel>
-                    
-                </ScrollViewer>
-            </Grid>
-
+            <Grid 
+                Grid.Column="1"
+                Name="mainWindowGrid"/>
         </Grid>
 
     </Grid>

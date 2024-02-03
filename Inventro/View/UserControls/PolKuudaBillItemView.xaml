@@ -1,0 +1,147 @@
+﻿<UserControl x:Class="Inventro.View.UserControls.PolKuudaBillItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Inventro.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignWidth="400">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <Label
+                Style="{StaticResource billLabel}"
+                Grid.Column="0"
+                VerticalAlignment="Center">●
+            </Label>
+
+            <StackPanel
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Orientation="Horizontal">
+                <Label
+                    Style="{StaticResource billLabel}"
+                    Name="lblItemName"
+                    VerticalAlignment="Center"
+                    FontSize="18"/>
+                <Label
+                    Style="{StaticResource billLabel}"
+                    VerticalAlignment="Center">
+                    ( 1kg = රු.
+                </Label>
+                <Label
+                    Style="{StaticResource billLabel}"
+                    VerticalAlignment="Center"
+                    Name="lblDailyRate"/>
+                <Label
+                    Style="{StaticResource billLabel}"
+                    VerticalAlignment="Center">
+                    )
+                </Label>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="1"
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Name="stackRounds"/>
+
+            <Label
+                Style="{StaticResource billLabel}"
+                VerticalAlignment="Center"
+                Grid.Column="1"
+                Grid.Row="2"
+                FontSize="11">කූඩ බර
+            </Label>
+            <Label
+                Style="{StaticResource billLabel}"
+                VerticalAlignment="Center"
+                Grid.Column="1"
+                Grid.Row="3"
+                FontSize="11">අඩු වන බර
+            </Label>
+
+            <Label
+                Style="{StaticResource billLabel}"
+                Name="lblMeasuredTotalWeight"
+                Grid.Row="1"
+                FontSize="11"
+                HorizontalContentAlignment="Right"
+                VerticalAlignment="Top" Margin="15,9,10,0" Grid.ColumnSpan="2"/>
+
+            <Label
+                Style="{StaticResource billLabel}"
+                Name="lblContainerWeight"
+                Grid.Column="2"
+                Grid.Row="2"
+                FontSize="11"
+                HorizontalContentAlignment="Right"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Stretch"/>
+
+            <Label
+                Style="{StaticResource billLabel}"
+                Name="lblMinusWeight"
+                Grid.Column="2"
+                Grid.Row="3"
+                FontSize="11"
+                HorizontalContentAlignment="Right"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Stretch"/>
+
+            <Border
+                Grid.Column="2"
+                Grid.Row="4"
+                BorderThickness="0,1,0,0"
+                BorderBrush="#5B8FB9">
+                <Label
+                    Style="{StaticResource billLabel}"
+                    Name="lblBillWeight"
+                    FontSize="11"
+                    HorizontalContentAlignment="Right"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"/>
+
+            </Border>
+
+            <Border
+                Grid.Column="3"
+                Grid.Row="4"
+                BorderThickness="0,1,0,1"
+                BorderBrush="#5B8FB9">
+                <Label
+                    Style="{StaticResource billLabel}"
+                    Name="lblBillValue"
+                    FontSize="11"
+                    HorizontalContentAlignment="Right"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"/>
+            </Border>
+
+            <Button
+                Style="{StaticResource closeBtnStyles}"
+                Name="btnRemove"
+                Grid.Column="3"
+                Grid.Row="0"
+                Width="30"
+                Height="30"
+                HorizontalAlignment="Right">X
+            </Button>
+
+        </Grid>
+    </Grid>
+</UserControl>

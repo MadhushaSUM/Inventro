@@ -10,7 +10,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <SolidColorBrush x:Key="CloseButton.Static.Background" Color="Transparent"/>
     <SolidColorBrush x:Key="CloseButton.Static.Foreground" Color="Crimson"/>
     <SolidColorBrush x:Key="CloseButton.Static.Border" Color="Transparent"/>
@@ -23,7 +23,7 @@
     <SolidColorBrush x:Key="CloseButton.Disabled.Background" Color="#FFF4F4F4"/>
     <SolidColorBrush x:Key="CloseButton.Disabled.Border" Color="Transparent"/>
     <SolidColorBrush x:Key="CloseButton.Disabled.Foreground" Color="#FF838383"/>
-    
+
     <Style x:Key="closeBtnStyles" TargetType="{x:Type Button}">
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
@@ -170,6 +170,62 @@
                             <Setter Property="Background" TargetName="border" Value="{StaticResource SidePannelButton.Disabled.Background}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource SidePannelButton.Disabled.Border}"/>
                             <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource SidePannelButton.Disabled.Foreground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <SolidColorBrush x:Key="NewTransactionButton.Static.Background" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Static.Foreground" Color="#03001C"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Static.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="NewTransactionButton.MouseOver.Background" Color="#03001C"/>
+    <SolidColorBrush x:Key="NewTransactionButton.MouseOver.Foreground" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="NewTransactionButton.MouseOver.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Pressed.Background" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Pressed.Foreground" Color="#03001C"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Pressed.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Disabled.Background" Color="#FFF4F4F4"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Disabled.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="NewTransactionButton.Disabled.Foreground" Color="#FF838383"/>
+
+    <Style x:Key="newTransactionTabButton" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Background" Value="{StaticResource NewTransactionButton.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource NewTransactionButton.Static.Border}"/>
+        <Setter Property="Foreground" Value="{StaticResource NewTransactionButton.Static.Foreground}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="20">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource NewTransactionButton.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource NewTransactionButton.MouseOver.Border}"/>
+                            <Setter Property="Foreground" Value="{StaticResource NewTransactionButton.MouseOver.Foreground}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource NewTransactionButton.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource NewTransactionButton.Pressed.Border}"/>
+                            <Setter Property="Foreground" Value="{StaticResource NewTransactionButton.Pressed.Foreground}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource NewTransactionButton.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource NewTransactionButton.Disabled.Border}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource NewTransactionButton.Disabled.Foreground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

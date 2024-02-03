@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="Inventro.View.UserControls.TransactionTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Inventro.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid
+        Style="{StaticResource transactionGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer
+            Grid.Column="0"
+            VerticalScrollBarVisibility="Hidden">
+            <StackPanel 
+                Margin="5" 
+                Name="buttonStack"/>
+        </ScrollViewer>
+
+        <Grid 
+            Grid.Column="1" 
+            Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="67"/>
+
+            </Grid.RowDefinitions>
+
+            <Border
+                BorderBrush="#5B8FB9"
+                BorderThickness="1"
+                CornerRadius="20"
+                Grid.Row="0">
+                <Grid
+                    Grid.Row="0"
+                    Name="ProductItemGrid"/>
+            </Border>
+            <Button
+                Style="{StaticResource transactionButtons}"
+                Grid.Row="1"
+                FontSize="20"
+                Margin="0,5,0,5"
+                Name="btnAddToBill"
+                Click="btnAddToList_Click">එකතු කරන්න
+            </Button>
+        </Grid>
+
+        <Grid Grid.Column="2" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            <Border
+                BorderBrush="#5B8FB9"
+                BorderThickness="1"
+                CornerRadius="20"
+                Grid.Row="0">
+                <ScrollViewer
+                    VerticalScrollBarVisibility="Hidden">
+                    <StackPanel
+                        Margin="5"
+                        Name="BillStack"/>
+                </ScrollViewer>
+            </Border>
+            
+            <Grid
+                Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="67"/>
+                </Grid.RowDefinitions>
+
+                <Label
+                    Style="{StaticResource billLabel}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    FontSize="18">මුළු එකතුව
+                </Label>
+                <Label
+                    Style="{StaticResource billLabel}"
+                    FontWeight="Bold"
+                    VerticalAlignment="Center"
+                    Margin="0,0,5,0"
+                    Name="lblTotalSum"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    FontSize="18">
+                </Label>
+
+                <Button
+                    Style="{StaticResource transactionButtons}"
+                    Name="btnSaveBill"
+                    Margin="0,5,0,5"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    FontSize="20"
+                    Click="btnSaveBill_Click">ප්‍රින්ට් කරන්න
+                </Button>
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+
+</UserControl>

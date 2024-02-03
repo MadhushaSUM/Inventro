@@ -9,6 +9,10 @@
                 <ResourceDictionary Source="Styles/Windows.xaml" />
                 <ResourceDictionary Source="Styles/Buttons.xaml" />
                 <ResourceDictionary Source="Styles/Texts.xaml" />
+                <ResourceDictionary Source="Styles/WeightSetter.xaml" />
+                <ResourceDictionary Source="Styles/TransactionTab.xaml" />
+                <ResourceDictionary Source="Styles/GeneralProductItem.xaml" />
+                <ResourceDictionary Source="Styles/GeneralBillItemView.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
          

@@ -7,5 +7,5 @@
         <Setter Property="Foreground" Value="#5B8FB9"/>
         <Setter Property="FontSize" Value="20" />
     </Style>
-    
+
 </ResourceDictionary>

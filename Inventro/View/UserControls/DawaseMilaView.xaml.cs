@@ -1,17 +1,41 @@
-﻿using System.Windows;
+﻿using Inventro.Utils;
 using System.Windows.Controls;
 
 namespace Inventro.View.UserControls
 {
-    public delegate void SaveBtnClick(object sender, RoutedEventArgs e);
     public partial class DawaseMilaView : UserControl
     {
-        public DawaseMilaView(string itemName, SaveBtnClick func)
+        private Product product;
+        public DawaseMilaView(Product product)
         {
             InitializeComponent();
 
-            lblItemName.Content = itemName;
-            btnItemPriceSave.Click += new RoutedEventHandler(func);
+            this.product = product;
+            lblItemName.Content = product.getProductName();
+            txtItemPrice.Text = product.getDailyRate().ToString();
+        }
+
+        public Product GetProduct() { return product; }
+        public decimal GetDailyRate()
+        {
+            try
+            {
+                return Math.Round(Convert.ToDecimal(txtItemPrice.Text), 2);
+            } catch
+            {
+                return 0;
+            }
+        }
+
+        private void txtItemPrice_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                Convert.ToDecimal(txtItemPrice.Text);
+            } catch
+            {
+                txtItemPrice.Text = "0";
+            }
         }
     }
 }

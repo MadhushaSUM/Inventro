@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="Inventro.View.AnalyzeTransactions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Inventro.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer
+        VerticalScrollBarVisibility="Auto">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="250"/>
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                HorizontalContentAlignment="Center"
+                Foreground="White"
+                FontSize="20">ගනුදෙනු
+            </Label>
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+
+                <StackPanel
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="15"
+                        Foreground="White"
+                        Width="350"
+                        Margin="5">දවස ආරම්භයේ මුදල (රු.)
+                    </Label>
+                    <TextBox 
+                        Name="txtStartMoney"
+                        VerticalContentAlignment="Center"
+                        Margin="5"
+                        FontSize="15"
+                        Width="200"/>
+
+                </StackPanel>
+
+                <Button
+                    Style="{StaticResource transactionButtons}"
+                    Name="btnCheck"
+                    Click="btnCheck_Click"
+                    Width="150"
+                    Height="40"
+                    Margin="5"
+                    >පරීක්ෂා කරන්න
+
+                </Button>
+
+                <StackPanel
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="15"
+                        Foreground="White"
+                        Width="350"
+                        Margin="5">දවස අවසානයේ තිබිය යුතු මුදල (රු.)
+                    </Label>
+                    <TextBox 
+                        Name="txtEndMoney"
+                        VerticalContentAlignment="Center"
+                        Margin="5"
+                        FontSize="15"
+                        Width="200"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <DataGrid
+                Name="dgTransactions"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="5">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="1*" Binding="{Binding id}"/>
+                    <DataGridTextColumn Header="වේලාව" Width="3*" Binding="{Binding created_at}"/>
+                    <DataGridTextColumn Header="වටිනාකම" Width="2*" Binding="{Binding total}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1">
+                <Button
+                    Style="{StaticResource transactionButtons}"
+                    Name="btnDetails"
+                    Click="btnDetails_Click"
+                    Height="40"
+                    Width="150"
+                    Margin="0,5,0,5">විස්තර
+                </Button>
+
+                <Button
+                    Style="{StaticResource transactionButtons}"
+                    Name="btnDelete"
+                    Click="btnDelete_Click"
+                    Height="40"
+                    Width="150"
+                    Margin="0,5,0,5">මකන්න
+                </Button>
+
+                <DatePicker
+                    Name="filterDate"
+                    Width="150"
+                    Margin="5" FirstDayOfWeek="Monday" />
+
+                <Button
+                    Style="{StaticResource transactionButtons}"
+                    Name="btnApplyFilter"
+                    Click="btnApplyFilter_Click"
+                    Width="150"
+                    Margin="5">Apply Filter
+                </Button>
+            </StackPanel>
+
+
+            <DataGrid
+                Name="dgBoughtItems"
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="5">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="1*"  Header="ID" Binding="{Binding id}"/>
+                    <DataGridTextColumn Width="3*" Header="Product" Binding="{Binding product_name}"/>
+                    <DataGridTextColumn Width="3*" Header="කිරූ සම්පූර්ණ බර" Binding="{Binding measured_weight}"/>
+                    <DataGridTextColumn Width="3*" Header="මලු බර" Binding="{Binding container_weight}"/>
+                    <DataGridTextColumn Width="3*" Header="අඩු වන බර" Binding="{Binding minus_weight}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+
+    </ScrollViewer>
+</UserControl>

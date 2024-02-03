@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventro.View"
+        xmlns:tabUserControl="clr-namespace:Inventro.View.UserControls"
         mc:Ignorable="d"
         Title="Inventro" Height="450" Width="800"
         WindowStyle="None"
@@ -12,7 +13,7 @@
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="40" CaptionHeight="0" />
     </WindowChrome.WindowChrome>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -21,39 +22,44 @@
 
         <Grid Style="{StaticResource TitleBar}" Grid.Row="0" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="40"/>
             </Grid.ColumnDefinitions>
             <Button
-                Grid.Column="3"
+                Grid.Column="0" 
+                Style="{StaticResource newTransactionTabButton}"
+                Name="btnAddTransactionTab"
+                Click="btnAddTransactionTab_Click">+
+            </Button>
+            <Button
+                Grid.Column="4"
                 Style="{StaticResource closeBtnStyles}"                 
                 Name="btnClose"
                 Click="btnClose_Click">X
             </Button>
             <Button
-                Grid.Column="2"
+                Grid.Column="3"
                 Style="{StaticResource MaximiseBtnStyles}"
                 Name="btnMaximise"
                 Click="btnMaximise_Click">⬜
             </Button>
             <Button
-                Grid.Column="1"
+                Grid.Column="2"
                 Style="{StaticResource MaximiseBtnStyles}"
                 Name="btnMinimize"
                 Click="btnMinimize_Click">_
             </Button>
         </Grid>
 
-        <TabControl Grid.Row="1">
-            <TabItem Header="Transaction 1">
-                
-            </TabItem>
+        <TabControl 
+            Grid.Row="1" 
+            Name="transactionTabs"
+            Background="Transparent"
+            BorderBrush="Transparent">
 
-            <TabItem Header="Transaction 2">
-
-            </TabItem>
         </TabControl>
     </Grid>
 </Window>

@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="productItemLabel" TargetType="Label">
+        <Setter Property="Foreground" Value="#5B8FB9"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="20,35,0,0"/>
+    </Style>
+
+    <Style x:Key="kirumVataLabel" TargetType="Label">
+        <Setter Property="Foreground" Value="#5B8FB9"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+
+    <SolidColorBrush x:Key="TransactionButton.Static.Background" Color="#03001C"/>
+    <SolidColorBrush x:Key="TransactionButton.Static.Foreground" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="TransactionButton.Static.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="TransactionButton.MouseOver.Background" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="TransactionButton.MouseOver.Foreground" Color="#03001C"/>
+    <SolidColorBrush x:Key="TransactionButton.MouseOver.Border" Color="#03001C"/>
+    <SolidColorBrush x:Key="TransactionButton.Pressed.Background" Color="#03001C"/>
+    <SolidColorBrush x:Key="TransactionButton.Pressed.Foreground" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="TransactionButton.Pressed.Border" Color="#5B8FB9"/>
+    <SolidColorBrush x:Key="TransactionButton.Disabled.Background" Color="#FFF4F4F4"/>
+    <SolidColorBrush x:Key="TransactionButton.Disabled.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="TransactionButton.Disabled.Foreground" Color="#FF838383"/>
+
+    <Style x:Key="nextTurnButton" TargetType="Button">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Background" Value="{StaticResource TransactionButton.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TransactionButton.Static.Border}"/>
+        <Setter Property="Foreground" Value="{StaticResource TransactionButton.Static.Foreground}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true" CornerRadius="10">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource TransactionButton.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TransactionButton.MouseOver.Border}"/>
+                            <Setter Property="Foreground" Value="{StaticResource TransactionButton.MouseOver.Foreground}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource TransactionButton.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TransactionButton.Pressed.Border}"/>
+                            <Setter Property="Foreground" Value="{StaticResource TransactionButton.Pressed.Foreground}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource TransactionButton.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TransactionButton.Disabled.Border}"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource TransactionButton.Disabled.Foreground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
